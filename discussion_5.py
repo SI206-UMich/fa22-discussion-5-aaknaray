@@ -3,11 +3,10 @@ import unittest
 # Counts the number of a's in a sentence (e.g., a string)
 def count_a(sentence):
 	total = 0
-	for i in range(len(sentence) - 1):
-		if i == 'a':
+	for char in sentence:
+		if char == 'a':
 			total += 1
 	return total
-
 
 # Item class
 # Describes an item to be sold. Each item has a name, a price, and a stock.
@@ -38,17 +37,24 @@ class Warehouse:
 
 	# Adds an item to the warehouse	
 	def add_item(self, item):
+		self.items.append(item)
 		pass
 
 	# Returns the item in the warehouse with the most stock		
 	def get_max_stock(self):
-		pass
-	
+		max_stock = item[0][2]
+		for item in self.items:
+			if item[0][2] > max_stock:
+				max_stock = item[0][2]
+		return item
+
 	# Returns the item in the warehouse with the highest price
 	def get_max_price(self):
-		pass	
-
-
+		max_price = item[0][1]
+		for item in self.items:
+			if item[0][1] > max_price:
+				max_price = item[0][1]
+		return item	
 
 # Tests
 class TestAllMethods(unittest.TestCase):
@@ -63,21 +69,35 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether count_a works
 	def test_count_a(self):
+		self.assertEqual(4, count_a("I am a student at the University of Michigan."))
+		self.assertEqual(1, count_a("Urban Technology."))
+		self.assertTrue(type(self.item1[0]) == str)
+		self.assertEqual(0, count_a(self.item1[0]))
 		pass
 
 
 	## Check to see whether you can add an item to the warehouse
 	def test_add_item(self):
+		self.assertTrue(len(Warehouse) == 0)
+		self.add_item(self, self.item1)
+		self.add_item(self, self.item2)
+		self.add_item(self, self.item3)
+		self.add_item(self, self.item4)
+		self.add_item(self, self.item5)
+		self.assertTrue(type(Warehouse) == list)
+		self.assertTrue(len(Warehouse == 5))
 		pass
 
 
 	## Check to see whether warehouse correctly returns the item with the most stock
 	def test_warehouse_max_stocks(self):
+		self.assertEqual(Warehouse.get_max_stock(self.items) == "Water")
 		pass
 
 
 	# Check to see whether the warehouse correctly return the item with the highest price
 	def test_warehouse_max_price(self):
+		self.assertEqual(Warehouse.get_max_price(self.items) == "Beer")
 		pass
 		
 
