@@ -78,11 +78,11 @@ class TestAllMethods(unittest.TestCase):
 
 	## Check to see whether you can add an item to the warehouse
 	def test_add_item(self):
-		self.add_item(self, self.item1)
-		self.add_item(self, self.item2)
-		self.add_item(self, self.item3)
-		self.add_item(self, self.item4)
-		self.add_item(self, self.item5)
+		self.add_item(Warehouse, self.item1)
+		self.add_item(Warehouse, self.item2)
+		self.add_item(Warehouse, self.item3)
+		self.add_item(Warehouse, self.item4)
+		self.add_item(Warehouse, self.item5)
 		self.assertTrue(type(Warehouse) == list)
 		self.assertTrue(len(Warehouse == 5))
 		self.assertEqual(Warehouse == [("Beer", 6, 20), ("Cider", 5, 25), ("Water", 1, 100), ("Fanta", 2, 60), ("CocaCola", 3, 40) ])
