@@ -85,6 +85,7 @@ class TestAllMethods(unittest.TestCase):
 		self.add_item(self, self.item5)
 		self.assertTrue(type(Warehouse) == list)
 		self.assertTrue(len(Warehouse == 5))
+		self.assertEqual(Warehouse == [("Beer", 6, 20), ("Cider", 5, 25), ("Water", 1, 100), ("Fanta", 2, 60), ("CocaCola", 3, 40) ])
 		pass
 
 
